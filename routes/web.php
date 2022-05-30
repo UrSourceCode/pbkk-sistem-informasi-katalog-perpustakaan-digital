@@ -14,8 +14,21 @@ use App\Http\Controllers\BookController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/', [BookController::class, 'index'])->name('home');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book.show');
+
+Route::get('/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/login/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/register', function(){
+    return view('register');
+});
+Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
