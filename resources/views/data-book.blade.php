@@ -44,65 +44,7 @@
             </div>
         @endforeach
  
-        @if (Session::has('edit_produk'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Pengeditan Produk Berhasil
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif
- 
-        @if (Session::has('hapus_produk'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Penghapusan Produk Berhasil
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif
-
-	  <table class="table" style="background-color:lightgray">
-            <thead class="thead-dark" style="background-color:gray ; color: white">
-                <tr>
-                    <th>ID</th>
-                    <th>Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Publisher</th>
-                    <th>Year</th>
-                    <th>Category</th>
-                    <th>Action</th>
-
-                </tr>
-            </thead>
-			@php
-                $it = 1;
-            @endphp
-		@foreach($data as $d)
-		<tr>
-            
-			<td style="background-color:gray ; color: white">{{ $d->id }}</td>
-            <td>
-                <img src="{{ asset('storage/'.$d->image)}}" class="img-fluid" style="width: 60px; height:90px; text-align:center; margin:0">
-            </td>
-			<td>{{ $d->title }}</td>
-			<td>{{ $d->publisher->name}}</td>
-			<td>{{ $d->author->name}}</td>
-			<td>{{ $d->year }}</td>
-            <td>{{ $d->category->name}}</td>
-            
-			<td>
-                <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-warning shadow"><i class="fa fa-info-circle"></i> Detail</a>
-			</td>
-		</tr>
-		@php
-            $it+=1;
-    	@endphp
-		@endforeach
-	</table>
+        
 </div>
 
 </body>
