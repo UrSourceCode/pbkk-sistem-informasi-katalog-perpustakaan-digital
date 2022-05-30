@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -18,6 +20,8 @@ class BookController extends Controller
         return view('data-book', [
             'data' => $data
         ]);
+
+        
     }
 
     /**
@@ -28,6 +32,8 @@ class BookController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        return view('form-book',['categories'=>$categories]);
     }
 
     /**
@@ -87,6 +93,6 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

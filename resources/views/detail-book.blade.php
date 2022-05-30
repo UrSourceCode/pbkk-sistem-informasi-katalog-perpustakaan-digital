@@ -96,8 +96,14 @@
                         {{-- </form> --}}
                         <br>
                         <div class="mt-4 text-center submit-btn">
-                            <a href="{{ route('home') }}" class="btn btn-secondary">Kembali</a>
-                        </div>
+                            <a href="{{ route('home') }}" class="btn btn-sm btn-secondary">Kembali</a>
+                            {{-- <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('book.destroy', $data->id) }}" method="POST">
+                                <a href="" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
+                            </form> --}}
+                    </div>
                     </div>
                 </div>
             </div>

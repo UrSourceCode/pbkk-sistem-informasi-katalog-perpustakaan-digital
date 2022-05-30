@@ -1,31 +1,48 @@
-<html>
-<head>
-	<title>Tutorial Membuat CRUD</title>
-</head>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <body>
-    <div class="container mt-5">
-        <center><h3>List</h3></center>
-
-	{{-- <a href="{{ route('produk.tambah-produk') }}" class="btn btn-success"> + Tambah produk Baru</a> --}}
-
-	<br/>
-	<br/>
-    @if (Session::has('tambah_produk'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Penambahan Produk Berhasil
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> --}}
-                </button>
+<!doctype html>
+<html lang="en">
+ 
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+      <title>Daftar Produk</title>
+  </head>
+ 
+  <body>
+    <div class="jumbotron">
+        <center>
+            <h1 class="display-4">Books Catalog</h1>
+            <a href="{{ route('book.create') }}" class="btn btn-success"> Add new book</a>
+        </center>
+    </div>
+    <div class="container text-center">
+        <a href="authors" class="btn btn-primary"> All Author</a>
+        <a href="category" class="btn btn-primary"> All Categories</a>
+        <a href="publisher" class="btn btn-primary"> All Publisher</a>
+        <a href="/" class="btn btn-primary"> Katalog</a>
+    </div>
+    <br>
+        <div class="container" style="text-align:center; position:inline-block;">
+        @foreach($data as $d)
+          
+            <div class="card" style="width: 21rem; float:left; margin: 10px;">
+              <div>
+                  <img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
+              </div>  
+              <div class="card-body" style="width:21rem">
+                      <p class="card-text"><b>{{ $d->title }}</b></p>
+                      <p class="card-text">{{ $d->year }}</p>
+                      <p class="card-text">{{ $d->author->name}}</p>
+                      <a href="{{ route('book.show' , $d->id) }}" class="btn btn-warning">Detail</a>
+                      
+                </div>
             </div>
-        @endif
+        @endforeach
  
         @if (Session::has('edit_produk'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
