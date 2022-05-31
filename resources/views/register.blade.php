@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Register</title>
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
     <!-- Font Awesome -->
     <link
@@ -34,7 +34,7 @@
     <!-- Container wrapper -->
     <div class="container">
       <!-- Navbar brand -->
-      <a class="navbar-brand me-2" href="#">
+      <a class="navbar-brand me-2" href="/">
         <img
           src="https://www.svgrepo.com/show/181747/library-book.svg"
           height="16"
@@ -160,10 +160,45 @@
                 class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <h3 class="fw-normal mb-3 pb-3"">{{ __('welcome.welcome') }}</h3>
+              <form>
 
-                <a class="btn btn-primary btn-lg btn-block" href="/login">{{ __('form.login') }} </a>
-                <a class="btn btn-primary btn-lg btn-block" href="/register">{{ __('form.register') }}</a>
+                <h3 class="fw-normal mb-3 pb-3"">{{ __('form.register') }}</h3>
+
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="name" name="name" class="form-control form-control-lg" />
+                  <label class="form-label" for="name">{{ __('form.profile.name') }}</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="email">{{ __('form.profile.email') }}</label>
+                </div>
+      
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="password">{{ __('form.profile.password') }}</label>
+                </div>
+
+                <!-- Confirm Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" />
+                  <label class="form-label" for="confirm-password">{{ __('form.profile.confirmpw') }}</label>
+                </div>
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-lg btn-block">{{ __('form.register') }}</button>
+      
+                <div class="divider d-flex align-items-center my-4">
+                  <p class="text-center fw-bold mx-3 mb-0 text-muted">{{ __('form.or') }}</p>
+                </div>
+      
+                <a class="btn btn-primary btn-lg btn-block" href="/login">{{ __('form.login') }}</a>
+      
+      
+              </form>
             </div>
           </div>
         </div>
