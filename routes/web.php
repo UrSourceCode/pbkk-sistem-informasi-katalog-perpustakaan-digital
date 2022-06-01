@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Models\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,17 @@ Route::get('/register', function(){
     return view('register');
 });
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+Route::get('/userhome', function(){
+    return view('home', [
+        'data' => Book::all(),
+    ]);
+});
+Route::get('/adminhome', function(){
+    return view('adminhome');
+});
+
+Route::get('/adminbook', function(){
+    return view('admin-list-book', [
+        'data' => Book::all(),
+    ]);
+});
