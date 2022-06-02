@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786024537005',
             'synopsis'=>'definisi web adalah jaringan komputer yang terdiri dari kumpulan situs internet yang menawarkan teks dan grafik dan suara dan sumber daya animasi melalui hypertext transfer protokol.',
             'category_id'=>'1',
-            'image'=>'cover\Pemrograman-Web-Dasar.jpg'
+            'image'=>'Pemrograman-Web-Dasar.jpg'
         ]);
         Book::create([
             'title'=>'Perancangan Basis Data Teori',
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786230207952',
             'synopsis'=>'Basis data adalah kumpulan data yang disimpan dalam komputer atau media penyimpanan dengan cara tertentu sehingga kumpulan data tersebut dapat dengan mudah untuk digunakan atau ditampilkan.',
             'category_id'=>'1',
-            'image'=>'cover\Perancangan-Basis-Data-Teori_Suhartini-Convert-Depan-scaled.jpg',
+            'image'=>'Perancangan-Basis-Data-Teori_Suhartini-Convert-Depan-scaled.jpg',
             
         ]);
         Book::create([
@@ -124,7 +124,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786020644813',
             'synopsis'=>'apakah hatiku mangkuk dangkal yang pecah— yang alangkah mudah diisi, namun mustahil penuh? apakah mencintai diri sendiri berarti menjadi batu yang dilemparkan ke lautan lepas tanpa dasar?',
             'category_id'=>'2',
-            'image'=>'cover\Mengapa_Luka_Tidak_Memaafkan_Pisau__w149_hauto.jpeg',
+            'image'=>'Mengapa_Luka_Tidak_Memaafkan_Pisau__w149_hauto.jpeg',
         ]);
         Book::create([
             'title'=>'Menghardik Gerimis',
@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786020631844',
             'synopsis'=>'“Aku mencintai hujan sebab kalau jatuh bilang terus terang dan jelas suaranya, tidak membiarkan aku terpeleset.”',
             'category_id'=>'2',
-            'image'=>'cover\Menghardik_Gerimis.jpg'
+            'image'=>'Menghardik_Gerimis.jpg'
         ]);
         Book::create([
             'title'=>'Panduan Telengkap Belajar Bahasa Korea',
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786026380814',
             'synopsis'=>'Buku ini sudah memenuhi Standar Kompetensi dan Kelulusan EPS TOPIK—semacam TOEFL (dalam bahasa Inggris) yang mengukur dan menguji kemampuan berbahasa Korea Anda. ',
             'category_id'=>'3',
-            'image'=>'cover\Panduan_Telengkap_Belajar_Bahasa_Korea.jpg',
+            'image'=>'Panduan_Telengkap_Belajar_Bahasa_Korea.jpg',
         ]);
         Book::create([
             'title'=>'The Complete Book Of The Ielts Preparation',
@@ -154,7 +154,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786230111716',
             'synopsis'=>'',
             'category_id'=>'3',
-            'image'=>'cover\the-complete-book-of-the-ielts-preparation.jpg',
+            'image'=>'the-complete-book-of-the-ielts-preparation.jpg',
         ]);
 
         Book::create([
@@ -165,7 +165,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786237498971',
             'synopsis'=>'Dari sisi Bahasa Pemrograman, Python menjadi salah satu pilihan terbaik untuk mengimplementasikan machine learning, mengingat kelengkapan library yang dibutuhkan untuk metode tersebut.',
             'category_id'=>'1',
-            'image'=>'cover\Python_For_Machine_Learning_Edisi_Revisi.jpg'
+            'image'=>'Python_For_Machine_Learning_Edisi_Revisi.jpg'
         ]);
         
         Book::create([
@@ -176,7 +176,7 @@ class DatabaseSeeder extends Seeder
             'isbn'=>'9786020639246',
             'synopsis'=>'Pernahkah kau berpikir bahwa cinta pertama diciptakan Juru Dongeng agar perempuan seperti kita ini tidak henti-hentinya kacau pikirannya, agar gadis-gadis baik seperti kita ini sering sekali tidak bisa tidur nyenyak?',
             'category_id'=>'2',
-            'image'=>'cover\SEGI_TIGA.jpg'
+            'image'=>'SEGI_TIGA.jpg'
         ]);
 
     }

@@ -39,19 +39,43 @@ Route::get('/category', function(Category $category){
     return view('category', [
         'title' => "All Categories",
         'data' => Category::all(),
+        'jenis' => "category",
     ]);
-})->name('all.category');
+})->name('all.categories');
 
-Route::get('/authors', function(Author $author){
+Route::get('/author', function(Author $author){
     return view('category', [
         'title' => "All Authors",
         'data' => Author::all(),
+        'jenis' => "author",
     ]);
-});
-Route::get('/publisher', function(Author $author){
+})->name('all.authors');
+
+Route::get('/publisher', function(Publisher $publisher){
     return view('category', [
         'title' => "All Publishers",
         'data' => Publisher::all(),
+        'jenis' => "publisher",
+    ]);
+})->name('all.publishers');
+Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/author/{author:id}', function(Author $author) {
+    return view('home', [
+        'title' =>"Books by ".$author->name,
+        'data' => $author->books,
     ]);
 });
-Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+Route::get('/publisher/{publisher:id}', function(Publisher $publisher) {
+    return view('home', [
+        'title' =>"Books by ".$publisher->name,
+        'data' => $publisher->books,
+    ]);
+});
+Route::get('/category/{category:id}', function(Category $category) {
+    return view('home', [
+        'title' =>"Books by ".$category->name,
+        'data' => $category->books,
+    ]);
+});
+

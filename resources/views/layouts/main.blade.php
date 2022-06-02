@@ -21,10 +21,10 @@
         </center>
     </div>
     <div class="container text-center">
-        <a href="authors" class="btn btn-primary"> All Author</a>
-        <a href="category" class="btn btn-primary"> All Categories</a>
-        <a href="publisher" class="btn btn-primary"> All Publisher</a>
-        <a href="/" class="btn btn-primary"> Katalog</a>
+        <a href="{{ route('all.authors') }}" class="btn btn-primary"> All Author</a>
+        <a href="{{ route('all.categories') }}" class="btn btn-primary"> All Categories</a>
+        <a href="{{ route('all.publishers') }}" class="btn btn-primary"> All Publisher</a>
+        <a href="{{ route('home') }}" class="btn btn-primary"> Katalog</a>
     </div>
     <br>
         <div class="container" style="text-align:center; position:inline-block;">

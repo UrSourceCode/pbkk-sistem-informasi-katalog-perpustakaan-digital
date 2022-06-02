@@ -33,7 +33,7 @@
                             <tr>
                                 <td style="width:150px; font-weight:bold">Cover</td>
                                 @if($data->image)
-                                <td><img src="{{ asset('storage/'. $data->image) }}"class="img-preview img-fluid col-sm-3 d-block">
+                                <td><img src="{{ asset('storage/cover/'. $data->image) }}"class="img-preview img-fluid col-sm-3 d-block">
                                 </td>
                                     @endif
                             </tr>

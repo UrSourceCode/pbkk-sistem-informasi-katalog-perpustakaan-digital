@@ -32,7 +32,7 @@
           
             <div class="card" style="width: 21rem; float:left; margin: 10px;">
               <div>
-                  <img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
+                  <img src="{{ asset('storage/cover/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
               </div>  
               <div class="card-body" style="width:21rem">
                       <p class="card-text"><b>{{ $d->title }}</b></p>
