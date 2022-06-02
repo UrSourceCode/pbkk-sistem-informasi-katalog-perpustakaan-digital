@@ -17,6 +17,7 @@
     <div class="jumbotron">
         <center>
             <h1 class="display-4">{{ $title }}</h1>
+        <a href="{{ route('book.create') }}" class="btn btn-success"> Add new book</a>
         </center>
     </div>
     <div class="container text-center">

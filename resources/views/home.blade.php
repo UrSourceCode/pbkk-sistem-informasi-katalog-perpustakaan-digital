@@ -1,5 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.home-main')
 @section('container')
+
 @foreach($data as $d)
           
             <div class="card" style="width: 21rem; float:left; margin: 10px;">
