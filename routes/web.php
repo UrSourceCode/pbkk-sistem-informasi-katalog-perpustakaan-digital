@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Author;
 use App\Models\Publisher;
@@ -35,6 +37,29 @@ Route::get('/login/lang={locale}', 'App\Http\Controllers\LocalizationController@
 Route::get('/register', function(){
     return view('register');
 });
+
+Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+Route::get('/userhome', function(){
+    return view('home', [
+        'data' => Book::all(),
+    ]);
+});
+Route::get('/adminhome', function(){
+    return view('adminhome');
+});
+
+Route::get('/adminbook', function(){
+    return view('admin-list-book', [
+        'data' => Book::all(),
+    ]);
+});
+
+Route::get('/editbook', function(){
+    return view('admin-edit-book', [
+        'data' => DB::table('books')->where('id', 1)->first(),
+    ]);
+});
+
 Route::get('/category', function(Category $category){
     return view('category', [
         'title' => "All Categories",
@@ -58,6 +83,7 @@ Route::get('/publisher', function(Publisher $publisher){
         'jenis' => "publisher",
     ]);
 })->name('all.publishers');
+
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/author/{author:id}', function(Author $author) {

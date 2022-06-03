@@ -44,7 +44,6 @@
                   <p class="float-right">
                       <a href="#">Back to top</a>
                   </p>
-                  <p>Copyright 2019 © Webhozz</p>
               </div>
           </footer>
  
