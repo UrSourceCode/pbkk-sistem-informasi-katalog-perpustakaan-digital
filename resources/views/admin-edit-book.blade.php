@@ -197,7 +197,7 @@
 
                                 <div>
                                   <input class="mt-3 form-control form-control-lg @error('author') is-invalid @enderror" name="author" type="text"
-                                         placeholder="Author" value="{{ $data->year ? $data->year : 'Tidak Ada Data' }}" autofocus required>
+                                         placeholder="Author" value="{{ $data->author_id ? $data->author_id : 'Tidak Ada Data' }}" autofocus required>
                               </div>
   
                               @error('author')
@@ -208,7 +208,7 @@
 
                               <div>
                                 <input class="mt-3 form-control form-control-lg @error('publisher') is-invalid @enderror" name="publisher" type="text"
-                                       placeholder="Publisher" value="{{ $data->year ? $data->year : 'Tidak Ada Data' }}" autofocus required>
+                                       placeholder="Publisher" value="{{ $data->publisher_id ? $data->publisher_id : 'Tidak Ada Data' }}" autofocus required>
                             </div>
 
                             @error('publisher')
@@ -230,7 +230,7 @@
 
                                 <div>
                                   <input class="mt-3 form-control form-control-lg @error('category') is-invalid @enderror" name="category" type="text"
-                                         placeholder="Category" value="{{ $data->year ? $data->year : 'Tidak Ada Data' }}" autofocus required>
+                                         placeholder="Category" value="{{ $data->category_id ? $data->category_id : 'Tidak Ada Data' }}" autofocus required>
                               </div>
   
                               @error('category')
@@ -241,7 +241,7 @@
 
                               <div>
                                 <input class="mt-3 form-control form-control-lg @error('isbn') is-invalid @enderror" name="isbn" type="text"
-                                       placeholder="ISBN" value="{{ $data->year ? $data->year : 'Tidak Ada Data' }}" autofocus required>
+                                       placeholder="ISBN" value="{{ $data->isbn ? $data->isbn : 'Tidak Ada Data' }}" autofocus required>
                             </div>
 
                             @error('isbn')
@@ -252,7 +252,7 @@
 
                             <div>
                               <input class="mt-3 form-control form-control-lg @error('synopsis') is-invalid @enderror" name="synopsis" type="text"
-                                     placeholder="Synopsis" value="{{ $data->year ? $data->year : 'Tidak Ada Data' }}" autofocus required>
+                                     placeholder="Synopsis" value="{{ $data->synopsis ? $data->synopsis : 'Tidak Ada Data' }}" autofocus required>
                           </div>
 
                           @error('synopsis')
@@ -264,7 +264,7 @@
                             </form>
                             <br>
                             <div class="mt-4 text-center submit-btn">
-                                <a href="{{ route('home') }}" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
+                                <a href="/adminbook" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
                                 <button type="submit" class="btn btn-primary" form="form-login">Edit Data</button>
                             </div>
                         </div>
