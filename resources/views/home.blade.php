@@ -183,7 +183,6 @@
                       <p class="card-text">{{ $d->year }}</p>
                       <p class="card-text">{{ $d->author->name}}</p>
                       <a href="{{ route('book.show' , $d->id) }}" class="btn btn-warning">Detail</a>
-                      
                 </div>
             </div>
         @endforeach

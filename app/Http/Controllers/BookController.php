@@ -15,8 +15,9 @@ class BookController extends Controller
     public function index()
     {
         $data = Book::all();
-        return view('data-book', [
-            'data' => $data
+        return view('home', [
+            'data' => $data,
+            'title' => "Book Catalog"
         ]);
     }
 
