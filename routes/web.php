@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
@@ -45,5 +46,11 @@ Route::get('/adminhome', function(){
 Route::get('/adminbook', function(){
     return view('admin-list-book', [
         'data' => Book::all(),
+    ]);
+});
+
+Route::get('/editbook', function(){
+    return view('admin-edit-book', [
+        'data' => DB::table('books')->where('id', 1)->first(),
     ]);
 });
