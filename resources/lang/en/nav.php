@@ -4,6 +4,6 @@ return [
     "home" => "Home",
     "books" => "Books",
     "categories" => "Categories",
-    "auhtors" => "Authors",
+    "authors" => "Authors",
     "publishers" => "Publishers"
 ];

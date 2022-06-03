@@ -4,6 +4,6 @@ return [
     "home" => "Rumah",
     "books" => "Buku",
     "categories" => "Kategori",
-    "auhtors" => "Penulis",
+    "authors" => "Penulis",
     "publishers" => "Penerbit"
 ];
