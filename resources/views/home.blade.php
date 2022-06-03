@@ -67,16 +67,16 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">{{ __('nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Category</a>
+            <a class="nav-link" href="#">{{ __('nav.categories') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Author</a>
+            <a class="nav-link" href="#">{{ __('nav.authors') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Publisher</a>
+            <a class="nav-link" href="#">{{ __('nav.publishers') }}</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -194,7 +194,7 @@
               <hr>
               <div class="container">
                   <p class="float-right">
-                      <a href="#">Back to top</a>
+                      <a href="#">{{ __('page.backtotop') }}</a>
                   </p>
               </div>
           </footer>
