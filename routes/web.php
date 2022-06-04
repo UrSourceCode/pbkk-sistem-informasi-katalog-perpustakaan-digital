@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Author;
@@ -29,14 +31,20 @@ Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.de
 
 Route::get('/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/login/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
-Route::get('/register', function(){
-    return view('register');
-});
+// Route::get('/register', function(){
+//     return view('register');
+// });
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/userhome', function(){

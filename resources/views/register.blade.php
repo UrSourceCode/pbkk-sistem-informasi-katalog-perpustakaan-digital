@@ -160,13 +160,13 @@
                 class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form>
-
+              <form action = "/register" method = "POST">
+                @csrf
                 <h3 class="fw-normal mb-3 pb-3"">{{ __('form.register') }}</h3>
 
                 <!-- Name input -->
                 <div class="form-outline mb-4">
-                  <input type="text" id="name" name="name" class="form-control form-control-lg" />
+                  <input type="text" id="name" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror" />
                   <label class="form-label" for="name">{{ __('form.profile.name') }}</label>
                 </div>
 
