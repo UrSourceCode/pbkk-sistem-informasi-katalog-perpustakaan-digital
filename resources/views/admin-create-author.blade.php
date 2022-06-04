@@ -165,84 +165,48 @@
     <!-- Container wrapper -->
   </nav>
   <body>
-    <div class="container" style="padding-top: 50px">
-        <center><h3>{{ __('nav.books') }} Data</h3></center>
-
-        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addBook') }}</a>
-
-        <br/>
-        <br/>
-
-        {{-- @if (Session::has('tambah_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Added successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> --}}
-                {{--</button>
+    <center>
+        <div class="container-fluid">
+            <div class="container position-center">
+                <div class="row page-bg">
+                    <div class="p-4 col-md-12">
+                        <div class="text-center top-icon">
+                            <h1 class="mt-3">{{ __('crud.add') }} {{ __('nav.authors') }}</h1>
+                            <br>
+                            @if (Session::has('error'))
+                                <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                            @endif
+    
+                            @if (Session::has('wrongUsername'))
+                                <div class="alert alert-danger">{{ Session::get('wrongUsername') }}</div>
+                            @endif
+    
+                            <form id="form-login" action="#" method="post" onsubmit="return confirm('Apakah Anda Yakin Tambah Data ?');">
+                                @csrf
+    
+                                <div>
+                                    <input class="mt-3 form-control form-control-lg @error('author') is-invalid @enderror" name="author" type="text"
+                                           placeholder="Author" value="" autofocus required>
+                                </div>
+    
+                                @error('author')
+                                <div class="alert alert-danger">
+                                    Author salah
+                                </div>
+                                @enderror
+                                
+                            </form>
+                            <br>
+                            <div class="mt-4 text-center submit-btn">
+                                <a href="/adminbook" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
+                                <button type="submit" class="btn btn-primary" form="form-login">{{ __('crud.add') }} Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        @endif --}}
-
-        {{-- @if (Session::has('edit_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Edited successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif
-
-        @if (Session::has('hapus_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Deleted successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif --}}
-        
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>No.</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Author</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            @php
-                $it = 1;
-            @endphp
-            @foreach($data as $d)
-            <tr>
-                <td>{{ $it }}</td>
-                <td><img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;"></td>
-                <td>{{ $d->title }}</td>
-                <td>{{ $d->year }}</td>
-                <td>{{ $d->author->name }}</td>
-                <td>
-                    <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="#" method="POST">
-                        <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
-                        |
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
-                        |
-                        <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-secondary shadow"><i class="fa fa-info-circle"></i> Detail</a>
-                    </form>
-                </td>
-            </tr>
-            @php
-                $it+=1;
-            @endphp
-            @endforeach
-        </table>
-    </div>
+        </div>
+    </center>
               
     <!-- MDB -->
     <script

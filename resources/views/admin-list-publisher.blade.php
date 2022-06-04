@@ -166,9 +166,9 @@
   </nav>
   <body>
     <div class="container" style="padding-top: 50px">
-        <center><h3>{{ __('nav.books') }} Data</h3></center>
+        <center><h3>{{ __('nav.publishers') }} Data</h3></center>
 
-        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addBook') }}</a>
+        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addPublisher') }}</a>
 
         <br/>
         <br/>
@@ -208,10 +208,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>No.</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Author</th>
+                    <th>Publisher</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -221,19 +218,13 @@
             @foreach($data as $d)
             <tr>
                 <td>{{ $it }}</td>
-                <td><img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;"></td>
-                <td>{{ $d->title }}</td>
-                <td>{{ $d->year }}</td>
-                <td>{{ $d->author->name }}</td>
-                <td>
+                <td>{{ $d->name }}</td>
                     <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="#" method="POST">
                         <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
                         |
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
-                        |
-                        <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-secondary shadow"><i class="fa fa-info-circle"></i> Detail</a>
                     </form>
                 </td>
             </tr>
