@@ -169,14 +169,15 @@
     <div class="jumbotron">
         <center>
             <h1 class="display-4">Books Catalog</h1>
+            <h3> Total : {{ $data->count() }}</h3>
         </center>
         </div>
         <div class="container" style="text-align:center; position:inline-block;">
         @foreach($data as $d)
           
-            <div class="card" style="width: 25rem; float:left; margin: 10px;">
+            <div class="card" style="width: 25rem; float:left; margin: 75px;">
               <div>
-                  <img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
+                  <img src="{{ asset('storage/cover/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
               </div>  
               <div class="card-body" style="width:25rem">
                       <p class="card-text"><b>{{ $d->title }}</b></p>
