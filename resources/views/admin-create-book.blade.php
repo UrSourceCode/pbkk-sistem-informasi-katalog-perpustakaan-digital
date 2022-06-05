@@ -63,19 +63,19 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/admin/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Book</a>
+            <a class="nav-link" href="/admin/book">Book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Category</a>
+            <a class="nav-link" href="/admin/category">Category</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Author</a>
+            <a class="nav-link" href="/admin/author">Author</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Publisher</a>
+            <a class="nav-link" href="/admin/publisher">Publisher</a>
           </li>
         </ul>
         <!-- Left links -->

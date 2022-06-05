@@ -67,16 +67,16 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">{{ __('nav.home') }}</a>
+            <a class="nav-link" href="/home">{{ __('nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">{{ __('nav.categories') }}</a>
+            <a class="nav-link" href="/category">{{ __('nav.categories') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">{{ __('nav.authors') }}</a>
+            <a class="nav-link" href="/author">{{ __('nav.authors') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">{{ __('nav.publishers') }}</a>
+            <a class="nav-link" href="/publisher">{{ __('nav.publishers') }}</a>
           </li>
         </ul>
         <!-- Left links -->

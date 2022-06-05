@@ -19,10 +19,10 @@ use App\Models\Publisher;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', [BookController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', [BookController::class, 'index'])->name('home');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('/create', [BookController::class, 'create'])->name('book.create');
 Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
@@ -39,24 +39,38 @@ Route::get('/register', function(){
 });
 
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
-Route::get('/userhome', function(){
-    return view('home', [
-        'data' => Book::all(),
-    ]);
-});
-Route::get('/adminhome', function(){
+
+Route::get('/admin/home', function(){
     return view('adminhome');
 });
 
-Route::get('/adminbook', function(){
+Route::get('/admin/book', function(){
     return view('admin-list-book', [
         'data' => Book::all(),
     ]);
 });
 
-Route::get('/editbook', function(){
+Route::get('/admin/book/edit', function(){
     return view('admin-edit-book', [
         'data' => DB::table('books')->where('id', 1)->first(),
+    ]);
+});
+
+Route::get('/admin/category', function(){
+    return view('admin-list-category', [
+        'data' => Category::all(),
+    ]);
+});
+
+Route::get('/admin/author', function(){
+    return view('admin-list-author', [
+        'data' => Author::all(),
+    ]);
+});
+
+Route::get('/admin/publisher', function(){
+    return view('admin-list-publisher', [
+        'data' => Publisher::all(),
     ]);
 });
 
