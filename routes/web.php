@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Models\Category;
 use App\Models\Author;
+use App\Models\Book;
 use App\Models\Publisher;
 
 /*
@@ -35,6 +36,49 @@ Route::get('/login/lang={locale}', 'App\Http\Controllers\LocalizationController@
 Route::get('/register', function(){
     return view('register');
 });
+
+Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/admin/home', function(){
+    return view('adminhome');
+});
+Route::get('/admin/home/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/admin/book', function(){
+    return view('admin-list-book', [
+        'data' => Book::all(),
+    ]);
+});
+Route::get('/admin/book/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+// Route::get('/admin/book/edit', function(){
+//     return view('admin-edit-book', [
+//         'data' => DB::table('books')->where('id', 1)->first(),
+//     ]);
+// })->name('edit.book');
+Route::get('/admin/book/edit/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/admin/category', function(){
+    return view('admin-list-category', [
+        'data' => Category::all(),
+    ]);
+});
+Route::get('/admin/category/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/admin/author', function(){
+    return view('admin-list-author', [
+        'data' => Author::all(),
+    ]);
+});
+Route::get('/admin/author/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
+Route::get('/admin/publisher', function(){
+    return view('admin-list-publisher', [
+        'data' => Publisher::all(),
+    ]);
+});
+Route::get('/admin/publisher/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
 Route::get('/category', function(Category $category){
     return view('category', [
         'title' => "All Categories",
