@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -62,7 +63,19 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="/admin/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/book">Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/category">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/author">Author</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/publisher">Publisher</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -152,23 +165,78 @@
     <!-- Container wrapper -->
   </nav>
   <body>
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-          <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-              <img src="https://www.svgrepo.com/show/181747/library-book.svg"
-                class="img-fluid" alt="Phone image">
-            </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <h3 class="fw-normal mb-3 pb-3"">{{ __('welcome.welcome') }}</h3>
+    <div class="container" style="padding-top: 50px">
+        <center><h3>{{ __('nav.publishers') }} Data</h3></center>
 
-                <a class="btn btn-primary btn-lg btn-block" href="/login">{{ __('form.login') }} </a>
-                <a class="btn btn-primary btn-lg btn-block" href="/register">{{ __('form.register') }}</a>
+        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addPublisher') }}</a>
+
+        <br/>
+        <br/>
+
+        {{-- @if (Session::has('tambah_data'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
+                <br>
+                    Added successfully
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> --}}
+                {{--</button>
             </div>
-          </div>
-        </div>
-      </section>
-      <!-- MDB -->
+        @endif --}}
+
+        {{-- @if (Session::has('edit_data'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
+                <br>
+                    Edited successfully
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        @endif
+
+        @if (Session::has('hapus_data'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
+                <br>
+                    Deleted successfully
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        @endif --}}
+        
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No.</th>
+                    <th>Publisher</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            @php
+                $it = 1;
+            @endphp
+            @foreach($data as $d)
+            <tr>
+                <td>{{ $it }}</td>
+                <td>{{ $d->name }}</td>
+                <td>
+                    <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="#" method="POST">
+                        <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
+                        |
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @php
+                $it+=1;
+            @endphp
+            @endforeach
+        </table>
+    </div>
+              
+    <!-- MDB -->
     <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"

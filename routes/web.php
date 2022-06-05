@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Author;
-use App\Models\Book;
 use App\Models\Publisher;
 
 /*
@@ -18,10 +19,11 @@ use App\Models\Publisher;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', [BookController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', [BookController::class, 'index'])->name('home');
+Route::get('/home/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('/create', [BookController::class, 'create'])->name('book.create');
 Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
@@ -122,4 +124,3 @@ Route::get('/category/{category:id}', function(Category $category) {
         'data' => $category->books,
     ]);
 });
-

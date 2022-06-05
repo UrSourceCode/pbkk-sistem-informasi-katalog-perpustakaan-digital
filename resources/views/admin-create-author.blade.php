@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -62,7 +63,19 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="/admin/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/book">Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/category">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/author">Author</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/publisher">Publisher</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -152,23 +165,50 @@
     <!-- Container wrapper -->
   </nav>
   <body>
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-          <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-              <img src="https://www.svgrepo.com/show/181747/library-book.svg"
-                class="img-fluid" alt="Phone image">
+    <center>
+        <div class="container-fluid">
+            <div class="container position-center">
+                <div class="row page-bg">
+                    <div class="p-4 col-md-12">
+                        <div class="text-center top-icon">
+                            <h1 class="mt-3">{{ __('crud.add') }} {{ __('nav.authors') }}</h1>
+                            <br>
+                            @if (Session::has('error'))
+                                <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                            @endif
+    
+                            @if (Session::has('wrongUsername'))
+                                <div class="alert alert-danger">{{ Session::get('wrongUsername') }}</div>
+                            @endif
+    
+                            <form id="form-login" action="#" method="post" onsubmit="return confirm('Apakah Anda Yakin Tambah Data ?');">
+                                @csrf
+    
+                                <div>
+                                    <input class="mt-3 form-control form-control-lg @error('author') is-invalid @enderror" name="author" type="text"
+                                           placeholder="Author" value="" autofocus required>
+                                </div>
+    
+                                @error('author')
+                                <div class="alert alert-danger">
+                                    Author salah
+                                </div>
+                                @enderror
+                                
+                            </form>
+                            <br>
+                            <div class="mt-4 text-center submit-btn">
+                                <a href="/adminbook" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
+                                <button type="submit" class="btn btn-primary" form="form-login">{{ __('crud.add') }} Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <h3 class="fw-normal mb-3 pb-3"">{{ __('welcome.welcome') }}</h3>
-
-                <a class="btn btn-primary btn-lg btn-block" href="/login">{{ __('form.login') }} </a>
-                <a class="btn btn-primary btn-lg btn-block" href="/register">{{ __('form.register') }}</a>
-            </div>
-          </div>
         </div>
-      </section>
-      <!-- MDB -->
+    </center>
+              
+    <!-- MDB -->
     <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
