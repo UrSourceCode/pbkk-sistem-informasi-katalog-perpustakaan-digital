@@ -2,7 +2,7 @@
 @section('container')
         @foreach($data as $d)
           
-            <div class="card" style="width: 21rem; float:left; margin: 10px;">
+            <div class="card" style="width: 21rem;height: 25rem; float:left; margin: 10px;">
               <div>
                   <img src="{{ asset('storage/cover/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;">
               </div>  

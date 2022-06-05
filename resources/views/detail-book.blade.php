@@ -264,7 +264,6 @@
             </div>
         </div>
     </div>
-    @endsection
 </center>
 </body>
 </html>

@@ -168,7 +168,7 @@
     <div class="container" style="padding-top: 50px">
         <center><h3>{{ __('nav.books') }} Data</h3></center>
 
-        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addBook') }}</a>
+        <a href="{{ route('book.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addBook') }}</a>
 
         <br/>
         <br/>
@@ -221,13 +221,13 @@
             @foreach($data as $d)
             <tr>
                 <td>{{ $it }}</td>
-                <td><img src="{{ asset('storage/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;"></td>
+                <td><img src="{{ asset('storage/cover/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;"></td>
                 <td>{{ $d->title }}</td>
                 <td>{{ $d->year }}</td>
                 <td>{{ $d->author->name }}</td>
                 <td>
-                    <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="#" method="POST">
-                        <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
+                    <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('book.destroy', $d->id) }}" method="POST">
+                        <a href="{{ route('edit.book' , $d->id) }}" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
                         |
                         @csrf
                         @method('DELETE')
