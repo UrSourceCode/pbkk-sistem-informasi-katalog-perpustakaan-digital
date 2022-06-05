@@ -181,9 +181,8 @@
                                 <div class="alert alert-danger">{{ Session::get('wrongUsername') }}</div>
                             @endif
     
-                            <form id="form-login" action="#" method="post" onsubmit="return confirm('Apakah Anda Yakin Tambah Data ?');">
+                            <form id="form-login" action="{{ route('create.book') }}" method="post" enctype="multipart/form-data" onsubmit="return confirm('Apakah Anda Yakin Tambah Data ?');">
                                 @csrf
-    
                                 <div>
                                     <input class="mt-3 form-control form-control-lg @error('title') is-invalid @enderror" name="title" type="text"
                                            placeholder="Title" value="" autofocus required>
@@ -194,6 +193,17 @@
                                     Judul salah
                                 </div>
                                 @enderror
+
+                                <div>
+                                  <input class="mt-3 form-control form-control-lg @error('cover') is-invalid @enderror" name="cover" type="file"
+                                         placeholder="cover" value="" autofocus required>
+                              </div>
+  
+                              @error('cover')
+                              <div class="alert alert-danger">
+                                Cover Salah
+                              </div>
+                              @enderror
 
                                 <div>
                                   <input class="mt-3 form-control form-control-lg @error('author') is-invalid @enderror" name="author" type="text"

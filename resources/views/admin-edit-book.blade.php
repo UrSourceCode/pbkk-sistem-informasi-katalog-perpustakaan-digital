@@ -197,7 +197,7 @@
 
                                 <div>
                                   <input class="mt-3 form-control form-control-lg @error('author') is-invalid @enderror" name="author" type="text"
-                                         placeholder="Author" value="{{ $data->author_id ? $data->author_id : 'Tidak Ada Data' }}" autofocus required>
+                                         placeholder="Author" value="{{ $data->author->name ? $data->author->name : 'Tidak Ada Data' }}" autofocus required>
                               </div>
   
                               @error('author')
@@ -208,7 +208,7 @@
 
                               <div>
                                 <input class="mt-3 form-control form-control-lg @error('publisher') is-invalid @enderror" name="publisher" type="text"
-                                       placeholder="Publisher" value="{{ $data->publisher_id ? $data->publisher_id : 'Tidak Ada Data' }}" autofocus required>
+                                       placeholder="Publisher" value="{{ $data->publisher->name ? $data->publisher->name: 'Tidak Ada Data' }}" autofocus required>
                             </div>
 
                             @error('publisher')
@@ -230,7 +230,7 @@
 
                                 <div>
                                   <input class="mt-3 form-control form-control-lg @error('category') is-invalid @enderror" name="category" type="text"
-                                         placeholder="Category" value="{{ $data->category_id ? $data->category_id : 'Tidak Ada Data' }}" autofocus required>
+                                         placeholder="Category" value="{{ $data->category->name ? $data->category->name : 'Tidak Ada Data' }}" autofocus required>
                               </div>
   
                               @error('category')
