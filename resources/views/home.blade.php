@@ -1,7 +1,6 @@
-@extends('layouts.home-main')
+@extends('layouts.main')
 @section('container')
-
-@foreach($data as $d)
+        @foreach($data as $d)
           
             <div class="card" style="width: 21rem; float:left; margin: 10px;">
               <div>
@@ -16,5 +15,4 @@
                 </div>
             </div>
         @endforeach
-        </div>
-@endsection
+@endsection       
