@@ -62,23 +62,22 @@
       <div class="collapse navbar-collapse" id="navbarButtonsExample">
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/book">Book</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/category">Category</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/author">Author</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/publisher">Publisher</a>
-            </li>
-          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/home">{{ __('nav.home') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/book">{{ __('nav.books') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/category">{{ __('nav.categories') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/author">{{ __('nav.authors') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/publisher">{{ __('nav.publishers') }}</a>
+          </li>
+        </ul>
         <!-- Left links -->
   
         <div class="d-flex align-items-center">
@@ -222,11 +221,11 @@
                 <td>{{ $d->name }}</td>
                 <td>
                     <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="#" method="POST">
-                        <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
+                        <a href="#" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> {{ __('crud.edit') }}</a>
                         |
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> {{ __('crud.delete') }}</button>
                     </form>
                 </td>
             </tr>
