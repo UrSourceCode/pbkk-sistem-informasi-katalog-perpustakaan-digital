@@ -63,19 +63,19 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/admin/home">Home</a>
+            <a class="nav-link" href="/admin/home">{{ __('nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/book">Book</a>
+            <a class="nav-link" href="/admin/book">{{ __('nav.books') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/category">Category</a>
+            <a class="nav-link" href="/admin/category">{{ __('nav.categories') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/author">Author</a>
+            <a class="nav-link" href="/admin/author">{{ __('nav.authors') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/publisher">Publisher</a>
+            <a class="nav-link" href="/admin/publisher">{{ __('nav.publishers') }}</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -208,10 +208,10 @@
             <thead class="thead-dark">
                 <tr>
                     <th>No.</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Author</th>
+                    <th>{{ __('book.cover') }}</th>
+                    <th>{{ __('book.title') }}</th>
+                    <th>{{ __('book.year') }}</th>
+                    <th>{{ __('book.author') }}</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -227,13 +227,13 @@
                 <td>{{ $d->author->name }}</td>
                 <td>
                     <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('book.destroy', $d->id) }}" method="POST">
-                        <a href="{{ route('edit.book' , $d->id) }}" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
+                        <a href="{{ route('edit.book' , $d->id) }}" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> {{ __('crud.edit') }}</a>
                         |
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> {{ __('crud.delete') }}</button>
                         |
-                        <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-secondary shadow"><i class="fa fa-info-circle"></i> Detail</a>
+                        <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-secondary shadow"><i class="fa fa-info-circle"></i> {{ __('crud.detail') }}</a>
                     </form>
                 </td>
             </tr>

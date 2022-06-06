@@ -63,19 +63,19 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/admin/home">Home</a>
+            <a class="nav-link" href="/admin/home">{{ __('nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/book">Book</a>
+            <a class="nav-link" href="/admin/book">{{ __('nav.books') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/category">Category</a>
+            <a class="nav-link" href="/admin/category">{{ __('nav.categories') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/author">Author</a>
+            <a class="nav-link" href="/admin/author">{{ __('nav.authors') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/publisher">Publisher</a>
+            <a class="nav-link" href="/admin/publisher">{{ __('nav.publishers') }}</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -165,8 +165,10 @@
     <!-- Container wrapper -->
   </nav>
   <body>
-    <div class="container bg-light">
-    </div>
+          
+      <div style="width: 90%; margin-top: 30px; margin-left: 5%; margin-right: 5%; padding: 10px; border-radius: 10px; box-shadow: 1px 1px 4px">
+          {{ __('welcome.adminloggedin') }}
+      </div>
               
     <!-- MDB -->
     <script
