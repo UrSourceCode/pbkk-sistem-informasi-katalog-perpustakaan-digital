@@ -16,7 +16,8 @@ class RegisterController extends Controller
             'phone' => 'required|string|min:8|max:11',
             'role' => 'required|string',
             'email' => 'required|unique:users',
-            'password' => 'required'
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required|min:6'
         ]);
 
         $user = User::create([

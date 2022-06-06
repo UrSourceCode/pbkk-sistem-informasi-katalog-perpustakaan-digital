@@ -196,8 +196,13 @@
 
                 <!-- Confirm Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" />
-                  <label class="form-label" for="confirm-password">{{ __('form.profile.confirmpw') }}</label>
+                  <input type="password" id="password" name="password_confirmation" class="form-control form-control-lg" />
+                  <label class="form-label" for="password">{{ __('form.profile.confirmpw') }}</label>
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 
                 <!-- Submit button -->
