@@ -3,6 +3,8 @@
 return [
     "profile" => [
         "name" => "Name",
+        "instance" => "Instance",
+        "phone" => "Phone Number",
         "email" => "Email Address",
 	    "password" => "Password",
         "confirmpw" => "Confirm Password",

@@ -3,6 +3,8 @@
 return [
     "profile" => [
         "name" => "Nama",
+        "instance" => "Instansi",
+        "phone" => "Nomor Telepon",
         "email" => "Alamat Email",
 	    "password" => "Kata Sandi",
         "confirmpw" => "Konfirmasi Kata Sandi"

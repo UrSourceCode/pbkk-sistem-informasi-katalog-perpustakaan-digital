@@ -92,6 +92,7 @@ Route::get('/category', function(Category $category){
         'jenis' => "category",
     ]);
 })->name('all.categories');
+Route::get('/category/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/author', function(Author $author){
     return view('category', [
@@ -100,6 +101,7 @@ Route::get('/author', function(Author $author){
         'jenis' => "author",
     ]);
 })->name('all.authors');
+Route::get('/author/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/publisher', function(Publisher $publisher){
     return view('category', [
@@ -108,6 +110,7 @@ Route::get('/publisher', function(Publisher $publisher){
         'jenis' => "publisher",
     ]);
 })->name('all.publishers');
+Route::get('/publisher/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/author/{author:id}', function(Author $author) {
@@ -116,6 +119,7 @@ Route::get('/author/{author:id}', function(Author $author) {
         'data' => $author->books,
     ]);
 });
+Route::get('/author/{author:id}/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/publisher/{publisher:id}', function(Publisher $publisher) {
     return view('home', [
         'title' =>"Books by ".$publisher->name,
