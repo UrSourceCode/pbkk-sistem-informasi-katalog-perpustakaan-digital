@@ -170,6 +170,18 @@
                   <label class="form-label" for="name">{{ __('form.profile.name') }}</label>
                 </div>
 
+                <!-- Instance input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="instance" name="instance" class="form-control form-control-lg" />
+                  <label class="form-label" for="instance">{{ __('form.profile.instance') }}</label>
+                </div>
+
+                <!-- Phone input -->
+                <div class="form-outline mb-4">
+                  <input type="tel" id="phone" name="phone" class="form-control form-control-lg" />
+                  <label class="form-label" for="phone">{{ __('form.profile.phone') }}</label>
+                </div>
+
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email" id="email" name="email" class="form-control form-control-lg" />
