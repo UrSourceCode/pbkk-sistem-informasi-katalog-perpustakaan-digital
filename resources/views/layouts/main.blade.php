@@ -169,6 +169,7 @@
     <div class="jumbotron">
         <center>
             <h1 class="display-4">{{ $title }}</h1>
+            <h3>Total : {{ $data->count() }} </h3>
         </center>
     </div>
         <div class="container" style="text-align:center; position:inline-block;">

@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -63,19 +67,16 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/admin/home">Home</a>
+            <a class="nav-link" href="{{ route('home') }}">{{ __('nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/book">Book</a>
+            <a class="nav-link" href="{{ route('all.categories') }}">{{ __('nav.categories') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/category">Category</a>
+            <a class="nav-link" href="{{ route('all.authors') }}">{{ __('nav.authors') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/author">Author</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/publisher">Publisher</a>
+            <a class="nav-link" href="{{ route('all.publishers') }}">{{ __('nav.publishers') }}</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -165,90 +166,7 @@
     <!-- Container wrapper -->
   </nav>
   <body>
-    <div class="container" style="padding-top: 50px">
-        <center><h3>{{ __('nav.books') }} Data</h3></center>
-
-        <a href="{{ route('book.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>{{ __('crud.addBook') }}</a>
-
-        <br/>
-        <br/>
-
-        {{-- @if (Session::has('tambah_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Added successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> --}}
-                {{--</button>
-            </div>
-        @endif --}}
-
-        {{-- @if (Session::has('edit_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Edited successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif
-
-        @if (Session::has('hapus_data'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-                <strong><i class="fa fa-check-circle"></i> Berhasil!</strong>
-                <br>
-                    Deleted successfully
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        @endif --}}
-        
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>No.</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Author</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            @php
-                $it = 1;
-            @endphp
-            @foreach($data as $d)
-            <tr>
-                <td>{{ $it }}</td>
-                <td><img src="{{ asset('storage/cover/'.$d->image)}}" class="card-img-top"style="width: 120px; height:150px;text-align:center;"></td>
-                <td>{{ $d->title }}</td>
-                <td>{{ $d->year }}</td>
-                <td>{{ $d->author->name }}</td>
-                <td>
-                    <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Data ini ?');" action="{{ route('book.destroy', $d->id) }}" method="POST">
-                        <a href="{{ route('edit.book' , $d->id) }}" class="btn btn-sm btn-primary shadow"><i class="fa fa-edit"></i> Edit</a>
-                        |
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger shadow"><i class="fa fa-trash"></i> Delete</button>
-                        |
-                        <a href="{{ route('book.show' , $d->id) }}" class="btn btn-sm btn-secondary shadow"><i class="fa fa-info-circle"></i> Detail</a>
-                    </form>
-                </td>
-            </tr>
-            @php
-                $it+=1;
-            @endphp
-            @endforeach
-        </table>
+    <div class="container" style="text-align:center; position:inline-block;">
+    @yield('container')
     </div>
-              
-    <!-- MDB -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
-    ></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> --}}
   </body>
-</html>
