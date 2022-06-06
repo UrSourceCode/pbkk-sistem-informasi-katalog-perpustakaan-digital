@@ -126,9 +126,12 @@ Route::get('/publisher/{publisher:id}', function(Publisher $publisher) {
         'data' => $publisher->books,
     ]);
 });
+Route::get('/publisher/{publisher:id}/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
+
 Route::get('/category/{category:id}', function(Category $category) {
     return view('home', [
         'title' =>"Books by ".$category->name,
         'data' => $category->books,
     ]);
 });
+Route::get('/category/{category:id}/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
