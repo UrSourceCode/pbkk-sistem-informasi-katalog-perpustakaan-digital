@@ -27,10 +27,28 @@ Seorang admin dapat:
 ## Laravel request, validation and response
 - **Request** banyak digunakan untuk controller digunakan untuk mengambil input dan file dari form untuk disimpan di database. **Lokasi**: [app/Http/Controllers](app/Http/Controllers)
 - **Validation** digunakan pada beberapa form seperti menambah buku. Validation ini untuk mengecek validasi dari input yang diberikan dan juga terletak di beberapa view.
+``` php
+public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'cover'=> 'image|file|mimes:png,jpeg,jpg|max:2048',
+            'author'=>'required',
+            'publisher'=>'required',
+            'year'=>'required',
+            'category'=>'required',
+            'isbn'=>'required|min:13|max:13',
+            'synopsis'=>'required',
+        ]);      
+```
 - **Response** digunakan untuk menampilkan message dan redirect apabila data buku berhasil ditambah/hapus.
+``` php
+return redirect()->route('home.admin')->with('hapus_data', 'Book deleted');
+```
 
 ## Laravel model, eloquent and query builder
 - Terdiri dari beberapa **model** antara lain Admin, Author, Book, Category, Publisher, dan User. Model tersebut digunakan untuk menyimpan fungsi-fungsi eloquent yang akan digunakan. 
+**Lokasi:** [app/Http/Models](app/Http/Models)
 - **eloquent** sendiri digunakan di controllers dan model terutama dibagian relasinya. Dimana relasi yang digunakan adalah
 ``` php
 //di model author
@@ -58,16 +76,46 @@ public function books(){
         return $this->hasMany(Book::class);
     }
 ```
-- **Query builder** digunakan di beberapa vie seperto untuk menghitung jumlah buku atau jumlah author.
+- **Query builder** digunakan di beberapa view seperti untuk menghitung jumlah buku atau jumlah author.
 
 ## Laravel authentication and authorization
+lokasi: `app\Http\Controllers\Auth` untuk mendeteksi pengguna apakah dia termasuk user atau admin.
+``` php
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class RedirectAuthController extends Controller
+{
+    public function home()
+    {
+        if (auth()->user()->role == 'admin') {
+            return redirect('/adminDashboard');
+        }
+        elseif (auth()->user()->role == 'user') {
+            return redirect('/userDashboard');
+        }
+        else{
+            return auth()->logout();
+        }
+    }
+}
+```
+
 ## Laravel localization and file storage
 - **untuk localization** terletak di controller di file LocalizationController.php
-- **file storage** digunakan untuk menyimpan dan mengambil file image dari cover buku. untuk mengakses file storage bisa menggunaka `php artisan storage:link`.
+- **file storage** digunakan untuk menyimpan dan mengambil file image dari cover buku. untuk mengakses file storage bisa menggunakan `php artisan storage:link`.
 
 ## Laravel view and blade component
 **Lokasi:** [resources\views](resources\views) 
 - `View` digunakan untuk menampilkan data dengan interface yang lebih ramah mata. Templating yang digunakan untuk menggunakan view yaitu `blade` .
 
 ## Laravel session and caching
+
+- **Session** menyediakan fitur untuk menyimpan informasi tentang aktifitas user yang melakukan request. [Untuk Lokalisasi](app/Http/Controllers/LocalizationController.php)
+
 ## Laravel feature testing and unit testing
+
