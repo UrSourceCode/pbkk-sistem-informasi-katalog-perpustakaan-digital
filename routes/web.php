@@ -25,9 +25,13 @@ Route::get('/', function () {
 Route::get('/home', [BookController::class, 'index'])->name('home');
 Route::get('/home/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book.show');
+Route::get('/show/{id}/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/create', [BookController::class, 'create'])->name('book.create');
+Route::get('/create/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::post('/create-book', [BookController::class, 'store'])->name('create.book');
+Route::get('/create-book/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
+Route::get('/delete/{id}/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
