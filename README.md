@@ -1,64 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Anggota Kelompok 
+3 - ELSHE ERVIANA ANGELY
+3 - HANIIF AHMAD JAUHARI
+3 - Aristya Vika Wijaya
+3 - Ramadhan Arif Hardijansyah
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Terdapat 2 peran yaitu User dan Admin. 
+Seorang user dapat: 
+1. Melihat list buku 
+2. Melakukan login
+3. Melihat buku berdasarkan author,kategori buku, atau publisher.
+4. Melihat detail buku
 
-## About Laravel
+Seorang admin dapat: 
+1. Melihat list buku 
+2. Melakukan login
+3. Melihat buku berdasarkan author,kategori buku, atau publisher.
+4. Dapat melihat detail buku
+5. Menambah buku baru.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Required:
+## Laravel route, controller and middleware
+- **Controller** sendiri terdapat `LocalizationController.php` untuk lokalisasi, `BookController.php` untuk CRUD buku, 'RegisterController.php` untuk proses registrasi.[app/Http/Controllers](app/Http/Controllers)
+- **Lokasi:** Route yang digunakan terdapat pada [routes/web.php](/routes/web.php)
+- Selain **middleware**-middleware bawaan, middleware juga digunakan untuk melakukan lokalisasi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Laravel request, validation and response
+- **Request** banyak digunakan untuk controller digunakan untuk mengambil input dan file dari form untuk disimpan di database. **Lokasi**: [app/Http/Controllers](app/Http/Controllers)
+- **Validation** digunakan pada beberapa form seperti menambah buku. Validation ini untuk mengecek validasi dari input yang diberikan dan juga terletak di beberapa view.
+- **Response** digunakan untuk menampilkan message dan redirect apabila data buku berhasil ditambah/hapus.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Laravel model, eloquent and query builder
+- Terdiri dari beberapa **model** antara lain Admin, Author, Book, Category, Publisher, dan User. Model tersebut digunakan untuk menyimpan fungsi-fungsi eloquent yang akan digunakan. 
+- **eloquent** sendiri digunakan di controllers dan model terutama dibagian relasinya. Dimana relasi yang digunakan adalah
+``` php
+//di model author
+public function books(){
+        return $this->hasMany(Book::class);
+    }
+//di model book
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
+    public function publisher(){
+        return $this->belongsTo(Publisher::class);
+    }
+    
+// di model category
+public function books(){
+        return $this->hasMany(Book::class);
+    }
+    
+// di model publisher
+    public function books(){
+        return $this->hasMany(Book::class);
+    }
+```
+- **Query builder** digunakan di beberapa vie seperto untuk menghitung jumlah buku atau jumlah author.
 
-## Learning Laravel
+## Laravel authentication and authorization
+## Laravel localization and file storage
+- **untuk localization** terletak di controller di file LocalizationController.php
+- **file storage** digunakan untuk menyimpan dan mengambil file image dari cover buku. untuk mengakses file storage bisa menggunaka `php artisan storage:link`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Laravel view and blade component
+**Lokasi:** [resources\views](resources\views) 
+- `View` digunakan untuk menampilkan data dengan interface yang lebih ramah mata. Templating yang digunakan untuk menggunakan view yaitu `blade` .
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Laravel session and caching
+## Laravel feature testing and unit testing
