@@ -264,7 +264,7 @@
                             </form>
                             <br>
                             <div class="mt-4 text-center submit-btn">
-                                <a href="/adminbook" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
+                                <a href="/admin/book" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Kembali ke Halaman Utama ?');">Kembali</a>
                                 <button type="submit" class="btn btn-primary" form="form-login">Edit Data</button>
                             </div>
                         </div>
