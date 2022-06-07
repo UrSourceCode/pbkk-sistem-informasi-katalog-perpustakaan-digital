@@ -43,7 +43,7 @@
           style="margin-top: -1px;"
         />
       </a>
-  
+
       <!-- Toggle button -->
       <button
         class="navbar-toggler"
@@ -56,7 +56,7 @@
       >
         <i class="fas fa-bars"></i>
       </button>
-  
+
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarButtonsExample">
         <!-- Left links -->
@@ -66,7 +66,7 @@
           </li> --}}
         </ul>
         <!-- Left links -->
-  
+
         <div class="d-flex align-items-center">
           <ul class="navbar-nav">
             @php $locale = session()->get('locale'); @endphp
@@ -92,7 +92,7 @@
                           ></a>
                         </li>
                         @break
-                    
+
                     @case('id')
                         <i class="flag-indonesia flag m-0"></i>
                       </a>
@@ -104,7 +104,7 @@
                           ></a>
                         </li>
                         @break
-                    
+
                     @default
                         <i class="flag-united-kingdom flag m-0"></i>
                       </a>
@@ -118,7 +118,7 @@
                         <?php
                         $locale = 'en';
                         ?>
-                    
+
                 @endswitch
                 <li><hr class="dropdown-divider" /></li>
 
@@ -129,7 +129,7 @@
                   if(Str::substr($curpath, 0, 1) != '/')
                         $curpath = "/".$curpath;
                 ?>
-                
+
                 @if($locale != 'en')
                     <li>
                       <a class="dropdown-item" href="{{ $curpath }}lang=en"><i class="flag-united-kingdom flag"></i>English</a>
@@ -144,7 +144,7 @@
 
               </ul>
             </li>
-          </ul> 
+          </ul>
         </div>
       </div>
       <!-- Collapsible wrapper -->
@@ -160,8 +160,8 @@
                 class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form>
-
+              <form method="post" action=""{{ url('user-store') }}>
+                @csrf
                 <h3 class="fw-normal mb-3 pb-3"">{{ __('form.register') }}</h3>
 
                 <!-- Name input -->
@@ -187,7 +187,7 @@
                   <input type="email" id="email" name="email" class="form-control form-control-lg" />
                   <label class="form-label" for="email">{{ __('form.profile.email') }}</label>
                 </div>
-      
+
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                   <input type="password" id="password" name="password" class="form-control form-control-lg" />
@@ -195,26 +195,26 @@
                 </div>
 
                 <!-- Confirm Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="password" name="password_confirmation" class="form-control form-control-lg" />
-                  <label class="form-label" for="password">{{ __('form.profile.confirmpw') }}</label>
-                  @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                </div>
-                
+{{--                <div class="form-outline mb-4">--}}
+{{--                  <input type="password" id="password" name="password_confirmation" class="form-control form-control-lg" />--}}
+{{--                  <label class="form-label" for="password">{{ __('form.profile.confirmpw') }}</label>--}}
+{{--                  @error('password')--}}
+{{--                      <span class="invalid-feedback" role="alert">--}}
+{{--                          <strong>{{ $message }}</strong>--}}
+{{--                      </span>--}}
+{{--                  @enderror--}}
+{{--                </div>--}}
+
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-lg btn-block">{{ __('form.register') }}</button>
-      
+
                 <div class="divider d-flex align-items-center my-4">
                   <p class="text-center fw-bold mx-3 mb-0 text-muted">{{ __('form.or') }}</p>
                 </div>
-      
+
                 <a class="btn btn-primary btn-lg btn-block" href="/login">{{ __('form.login') }}</a>
-      
-      
+
+
               </form>
             </div>
           </div>

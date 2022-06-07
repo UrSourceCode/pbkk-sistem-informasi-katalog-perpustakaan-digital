@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\Author;
 use App\Models\Publisher;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,12 @@ use App\Models\Publisher;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::middleware(['auth', 'user-access:user'])->group(function ()
+//{
+//    Route::get('')
+//});
+
 Route::get('/home', [BookController::class, 'index'])->name('home');
 Route::get('/home/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 Route::get('/show/{id}', [BookController::class, 'show'])->name('book.show');
@@ -31,15 +38,12 @@ Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('book.de
 
 Route::get('/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/login/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
-
-Route::get('/register', function(){
-    return view('register');
-});
-
+Route::get('/user-registration', [UserController::class, 'index'])->name('user.registration');
+Route::post('/user-store', [UserController::class, 'userPostRegistration']);
+Route::get('/user-login', [UserController::class, 'userLoginIndex']);
+Route::post('/login', [UserController::class, 'userPostLogin']);
+Route::get('/dashboard', [UserController::class, 'dashboard']);
+Route::get('/logout', [UserController::class, 'logout']);
 Route::get('/register/lang={locale}', 'App\Http\Controllers\LocalizationController@index');
 
 Route::get('/admin/home', function(){
